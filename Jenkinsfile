@@ -21,7 +21,6 @@ pipeline {
             steps {
                 sh 'docker tag demoapp $DOCKER_USER/demoapp:latest'
                 sh 'docker push $DOCKER_USER/demoapp:latest'
-                }
             }
         }
     }
