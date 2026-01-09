@@ -28,10 +28,11 @@ public class SimpleHTTPServer {
         sdfHK.setTimeZone(timeZone);
         String todaydate = sdfHK.format(today);
 
-        String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "Hello everyone!\n\n" + "Current date and time is: " + todaydate + "\n\n" + "Your application is running on the server with this hostname: " + id.getHostName();
 /*
-        String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "Hello everyone!\n\n" + "Current date and time is: " + todaydate + "\n\n" + "Current time zone is: " + timeZone.getID() + "\n\n" + "Your application is running on the server with this hostname: " + id.getHostName();
+        String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "Hello everyone!\n\n" + "Current date and time is: " + todaydate + "\n\n" + "Your application is running on the server with this hostname: " + id.getHostName();
 */
+        String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "Hello everyone!\n\n" + "Current date and time is: " + todaydate + "\n\n" + "Current time zone is: " + timeZone.getID() + "\n\n" + "Your application is running on the server with this hostname: " + id.getHostName();
+
         socket.getOutputStream()
               .write(httpResponse.getBytes("UTF-8"));
       }
