@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Push Image') {
             steps {
-                sh 'docker tag demoapp $DOCKER_USER/demoapp:latest'
-                sh 'docker push $DOCKER_USER/demoapp:latest'
+                sh 'docker tag demoapp clarencekmsham/demoapp:latest'
+                sh 'docker push clarencekmsham/demoapp:latest'
             }
         }
     }
