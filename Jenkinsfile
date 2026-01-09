@@ -10,8 +10,13 @@ pipeline {
         }
         stage('Push Image') {
             steps {
-                sh 'docker tag demoapp clarencekmsham/demoapp:latest'
-                sh 'docker push clarencekmsham/demoapp:latest'
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds',
+                                                  usernameVariable: 'DOCKER_USER',
+                                                  passwordVariable: 'DOCKER_PASS')]) {
+                sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                sh 'docker tag demoapp $DOCKER_USER/demoapp:latest'
+                sh 'docker push $DOCKER_USER/demoapp:latest'
+                }
             }
         }
     }
